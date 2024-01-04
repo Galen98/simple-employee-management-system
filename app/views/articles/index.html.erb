@@ -1,0 +1,42 @@
+<main role="main" class="container text-center">
+      <h1 class="mt-3" style="margin-top: 50px;margin-bottom:50px;">Articles</h1>
+<table class="table text-center" style="margin-top: 50px;margin-bottom:50px;">
+<thead> 
+<th>Judul</th>
+<th>Show</th>
+<th>Edit</th>
+<th>Delete</th>
+</thead>
+<tbody> 
+<% if @articles.present? %>
+    <% @articles.each do |article| %>
+<tr> 
+<th><%= article.title %></th>
+<th><a class="btn btn-sm btn-info" href="/articles/<%= article.id %>">Show</a></th>
+<th><%= button_to 'Edit', edit_article_path(article), method: 'get', class: 'btn btn-sm btn-success' %></th>
+<th><%= button_to 'Remove', article_path(article), method: 'delete', data: {turbo_confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %></th>
+</tr>
+ <% end %>
+  <% else %>
+  <tr class="text-center">
+    <td colspan="4">Data is empty</td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+    <%
+=begin%>
+ <%= link_to 'Show', article %>  
+<%
+=end%>
+
+<a href="/articles/new" class="btn btn-md btn-primary rounded-pill text-white mt-4">
+<%
+=begin%>
+ <%= link_to 'New Article', new_article_path %> 
+<%
+=end%>
+Create new article
+</a>
+</main>
+

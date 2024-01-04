@@ -1,0 +1,20 @@
+<div class="jumbotron">
+   <div class="container">
+   <h2 class="text-center">Welcome to Employee Management Tools</h2>
+   <h3 class="text-center">Scheduler, Exam test, and Many more</h3>
+   </div>
+</div>
+
+<main role="main" class="container text-center" style="margin-bottom:100px;">
+<h2 style="margin-top:30px;margin-bottom:30px;font-weight: bold;">Latest Article</h2>
+<% @articles.each do |article| %>
+<div class="panel panel-default" style="margin-top:20px;margin-bottom:20px;">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= article.title %></h3>
+  </div>
+  <div class="panel-body">
+    <a class="btn btn-sm btn-primary" href="/articles/<%= article.id %>">Read more</a>
+  </div>
+</div>
+<% end %>
+</main>
